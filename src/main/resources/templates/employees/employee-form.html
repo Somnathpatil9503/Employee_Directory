@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h3 {
+      color: #343a40;
+    }
+    .form-control {
+      border-radius: 0.25rem;
+      box-shadow: none;
+    }
+    .form-control:focus {
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+    .btn-info {
+      background-color: #17a2b8;
+      border-color: #17a2b8;
+      color: #fff;
+    }
+    .btn-info:hover {
+      background-color: #138496;
+      border-color: #117a8b;
+    }
+    a {
+      color: #007bff;
+    }
+    a:hover {
+      color: #0056b3;
+      text-decoration: none;
+    }
+  </style>
+
+  <title>Save Employee</title>
+</head>
+
+<body>
+<div class="container">
+  <h3>Employee Directory</h3>
+  <hr>
+
+  <p class="h4 mb-4">Save Employee</p>
+
+  <form action="#" th:action="@{/employees/save}" th:object="${employee}" method="POST">
+
+    <!--Add hidden form field to handle the update-->
+    <div class="mb-3">
+    <input type="hidden" th:field="*{id}">
+    </div>
+
+    <div class="mb-3">
+      <input type="text" th:field="*{firstName}" class="form-control" placeholder="First name">
+    </div>
+
+    <div class="mb-3">
+      <input type="text" th:field="*{lastName}" class="form-control" placeholder="Last name">
+    </div>
+
+    <div class="mb-3">
+      <input type="email" th:field="*{email}" class="form-control" placeholder="Email">
+    </div>
+
+    <div class="mb-3">
+      <input type="text" th:field="*{mobileNo}" class="form-control" placeholder="Mobile No">
+    </div>
+
+    <div class="mb-3">
+      <select th:field="*{gender}" class="form-control">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <input type="text" th:field="*{aadharNumber}" class="form-control" placeholder="Aadhar Number">
+    </div>
+
+    <div class="mb-3">
+      <textarea th:field="*{address}" class="form-control" placeholder="Address"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <input type="text" th:field="*{previousSchoolName}" class="form-control" placeholder="Previous School Name">
+    </div>
+
+    <div class="mb-3">
+      <input type="text" th:field="*{motherName}" class="form-control" placeholder="Mother's Name">
+    </div>
+
+    <button type="submit" class="btn btn-info">Save</button>
+  </form>
+
+  <hr>
+  <a th:href="@{/employees/list}">Back to Employees List</a>
+
+</div>
+
+</body>
+</html>
